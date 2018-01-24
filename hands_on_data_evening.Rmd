@@ -1,0 +1,35 @@
+---
+title: "RLadies Hands on Data Session"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load any libraries required for the analysis 
+
+```{r load_libraries}
+library(tidyverse)
+```
+
+# Import the data 
+
+```{r import_data}
+# Import multiple choice data
+rawMCData <- read_csv('data/multipleChoiceResponses.csv')
+
+# Import freeform responses
+rawFFData <- read_csv('data/freeformResponses.csv')
+
+# Import the actual questions asked
+schema <- read_csv('data/schema.csv')
+
+# Conversion rates 
+conversionRates <- read_csv('data/conversionRates.csv')
+```
+
+# United Kingdom Data 
+```{r united_kingdom}
+UKMCData <- rawMCData %>% filter(Country == "United Kingdom")
+```
